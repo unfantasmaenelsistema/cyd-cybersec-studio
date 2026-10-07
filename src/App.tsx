@@ -16,10 +16,12 @@ import {
   GraduationCap,
   Printer,
   Sun,
-  Moon
+  Moon,
+  BookOpen
 } from 'lucide-react';
 import { TabType } from './types';
 import { Overview } from './components/Overview';
+import { TheoryHub } from './components/TheoryHub';
 import { CydSimulator } from './components/CydSimulator';
 import { UseCasesCatalog } from './components/UseCasesCatalog';
 import { HardwareExplorer } from './components/HardwareExplorer';
@@ -122,6 +124,18 @@ export default function App() {
               }`}
             >
               Resumen
+            </button>
+
+            <button
+              onClick={() => handleTabChange('theory')}
+              className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
+                activeTab === 'theory'
+                  ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <BookOpen className="w-3.5 h-3.5 text-amber-400" />
+              <span>Curso: Teoría</span>
             </button>
 
             <button
@@ -279,6 +293,7 @@ export default function App() {
         <div className="lg:hidden flex items-center gap-1 overflow-x-auto px-4 py-2 border-t border-slate-800/60 bg-slate-950/60 text-xs">
           {[
             { id: 'overview', label: 'Resumen' },
+            { id: 'theory', label: '📘 Curso: Teoría' },
             { id: 'simulator', label: 'Simulador' },
             { id: 'use-cases', label: 'Casos de Uso' },
             { id: 'hardware-pinout', label: 'Hardware' },
@@ -307,6 +322,7 @@ export default function App() {
       {/* Main Page Content */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === 'overview' && <Overview onNavigateTab={handleTabChange} />}
+        {activeTab === 'theory' && <TheoryHub onNavigateTab={handleTabChange} />}
         {activeTab === 'simulator' && <CydSimulator />}
         {activeTab === 'use-cases' && <UseCasesCatalog />}
         {activeTab === 'hardware-pinout' && <HardwareExplorer />}

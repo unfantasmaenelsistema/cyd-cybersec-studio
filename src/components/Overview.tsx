@@ -16,7 +16,8 @@ import {
   DollarSign, 
   ExternalLink,
   Wifi,
-  Printer
+  Printer,
+  BookOpen
 } from 'lucide-react';
 import { TabType } from '../types';
 import { NetworkMetricsAnalytics } from './NetworkMetricsAnalytics';
@@ -83,6 +84,15 @@ export const Overview: React.FC<OverviewProps> = ({ onNavigateTab }) => {
 
           {/* Quick Action Badges / CTAs */}
           <div className="pt-2 flex flex-wrap gap-3">
+            <button
+              onClick={() => onNavigateTab('theory')}
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 via-cyan-400 to-cyan-500 hover:from-cyan-400 hover:to-cyan-300 text-slate-950 font-black text-xs transition-all shadow-lg shadow-cyan-500/30 hover:scale-[1.03] ring-2 ring-cyan-400/50"
+            >
+              <BookOpen className="w-4 h-4 text-slate-950" />
+              <span>Empezar el Curso (7 Módulos)</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+
             <button
               onClick={handleTriggerScanFromHero}
               className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black text-xs transition-all shadow-lg shadow-amber-500/30 hover:scale-[1.03] ring-2 ring-amber-400/50"

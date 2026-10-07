@@ -1,11 +1,12 @@
-export type TabType = 
-  | 'overview' 
-  | 'simulator' 
-  | 'use-cases' 
-  | 'hardware-pinout' 
-  | 'firmware-generator' 
+export type TabType =
+  | 'overview'
+  | 'theory'
+  | 'simulator'
+  | 'use-cases'
+  | 'hardware-pinout'
+  | 'firmware-generator'
   | 'builder-flasher'
-  | 'community-firmware' 
+  | 'community-firmware'
   | '3d-enclosure'
   | 'pro-academy'
   | 'ethics-methodology';

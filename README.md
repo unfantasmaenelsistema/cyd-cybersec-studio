@@ -1,5 +1,5 @@
 # CYD CyberSec Studio 🛡️⚡
-### Suite Integral de Ciberseguridad, Pentesting Wi-Fi/BLE, Blue Team IDS, Simulador y Web Flasher para placas CYD (Cheap Yellow Display / ESP32-2432S028R)
+### Suite Integral de Ciberseguridad, Curso Teórico-Práctico, Pentesting Wi-Fi/BLE, Blue Team IDS, Simulador y Web Flasher para placas CYD (Cheap Yellow Display / ESP32-2432S028R)
 
 <p align="center">
   <img src="docs/cyd_workbench_banner.svg" alt="CYD CyberSec Studio Banner" width="100%" />
@@ -28,15 +28,16 @@
 
 1. [🎯 Introducción y Propósito](#-introducción-y-propósito)
 2. [🛠️ Tecnologías Utilizadas](#️-tecnologías-utilizadas)
-3. [📸 Galería de Interfaz y Marcadores de Capturas](#-galería-de-interfaz-y-marcadores-de-capturas)
+3. [📸 Galería de Interfaz](#-galería-de-interfaz)
 4. [💻 Instrucciones de Instalación y Ejecución](#-instrucciones-de-instalación-y-ejecución)
 5. [📖 Guía de Uso de la Suite](#-guía-de-uso-de-la-suite)
    - [1. Panel de Control & Visión General (Overview)](#1-panel-de-control--visión-general-overview)
-   - [2. Diseñador de Proyectos Personalizados (Builder)](#2-diseñador-de-proyectos-personalizados-builder)
-   - [3. Web Serial Flasher & Monitor Serie AT](#3-web-serial-flasher--monitor-serie-at)
-   - [4. Simulador Virtual CYD en Tiempo Real](#4-simulador-virtual-cyd-en-tiempo-real)
-   - [5. Generador Paramétrico de Carcasas 3D (Three.js)](#5-generador-paramétrico-de-carcasas-3d-threejs)
-   - [6. Academia CTF & Pro Hub Educativo](#6-academia-ctf--pro-hub-educativo)
+   - [2. Curso Teórico: de la Teoría a la Práctica](#2-curso-teórico-de-la-teoría-a-la-práctica)
+   - [3. Diseñador de Proyectos Personalizados (Builder)](#3-diseñador-de-proyectos-personalizados-builder)
+   - [4. Web Serial Flasher & Monitor Serie AT](#4-web-serial-flasher--monitor-serie-at)
+   - [5. Simulador Virtual CYD en Tiempo Real](#5-simulador-virtual-cyd-en-tiempo-real)
+   - [6. Generador Paramétrico de Carcasas 3D (Three.js)](#6-generador-paramétrico-de-carcasas-3d-threejs)
+   - [7. Academia CTF & Pro Hub Educativo](#7-academia-ctf--pro-hub-educativo)
 6. [🔌 Pinout y Anatomía Técnica de la Placa CYD](#-pinout-y-anatomía-técnica-de-la-placa-cyd)
 7. [📚 Referencias a los Proyectos Fuente (Reconocimientos)](#-referencias-a-los-proyectos-fuente-reconocimientos)
 8. [🚀 Publicación en tu Repositorio de GitHub](#-publicación-en-tu-repositorio-de-github)
@@ -51,7 +52,8 @@ La placa **CYD (Cheap Yellow Display / ESP32-2432S028R)** se ha consolidado en l
 
 Sin embargo, los usuarios noveles y profesionales a menudo se enfrentan a dificultades técnicas: conflictos de bus entre la pantalla (HSPI) y la MicroSD (VSPI), configuración engorrosa de librerías como `TFT_eSPI` en Arduino IDE, instalación de drivers serie y falta de carcasas adecuadas para proteger la electrónica en auditorías reales.
 
-**CYD CyberSec Studio** nace para resolver estas barreras en una solución única basada en web:
+**CYD CyberSec Studio** nace para resolver estas barreras en una solución única basada en web, estructurada como un **curso teórico-práctico completo**:
+* **Curso Teórico de 7 Módulos**: desde la arquitectura del ESP32 y los buses SPI hasta el 4-way handshake WPA2/PMKID, BLE, RF Sub-GHz y el marco legal del hardware hacking — cada módulo enlaza directamente con la herramienta interactiva donde el concepto cobra vida, incluye una evaluación corta y guarda tu progreso y certificado de finalización.
 * **Entorno Educativo & Profesional**: Combina explicaciones pedagógicas de bajo nivel con herramientas de análisis avanzadas (conversor Hashcat 22000, calculadoras de autonomía, generador de informes de auditoría).
 * **Zero-Install Web Flasher (demo educativa)**: Conecta por USB mediante la **Web Serial API** real del navegador y simula visualmente el flujo completo de flasheo sin instalar Python ni `esptool`; para grabar firmware en hardware real, exporta el `.ino`/`.bin` y usa Arduino IDE, PlatformIO o `esptool.py`.
 * **Simulación Visual Bidireccional**: Prueba ataques y defensas (Deauth, PMKID, balizas AirTag, Wardriving) en un gemelo digital interactivo antes de salir al campo.
@@ -88,6 +90,15 @@ Sin embargo, los usuarios noveles y profesionales a menudo se enfrentan a dificu
 
 <p align="center">
   <img src="docs/screenshots/overview.png" alt="Dashboard y Guía de Inicio Rápido" width="90%" />
+</p>
+
+---
+
+### 1.5. Curso Teórico de 7 Módulos
+*Contenido teórico con evaluación integrada, seguimiento de progreso y enlaces directos a cada herramienta interactiva para practicar lo aprendido al instante.*
+
+<p align="center">
+  <img src="docs/screenshots/theory-course.png" alt="Curso Teórico de CYD CyberSec Studio" width="90%" />
 </p>
 
 ---
@@ -190,7 +201,19 @@ El servidor se iniciará en `http://localhost:3000`. Abre esta dirección en tu 
   3. Configuración de placa `ESP32 Dev Module` y librería `TFT_eSPI` en Arduino IDE.
 * **Historial de Eventos de Seguridad**: Registro en tiempo real de eventos detectados y simulados.
 
-### 2. Diseñador de Proyectos Personalizados (Builder)
+### 2. Curso Teórico: de la Teoría a la Práctica
+**7 módulos** de nivel creciente (Principiante → Avanzado), cada uno con teoría técnica detallada, una evaluación corta de 1-2 preguntas y enlaces directos a la herramienta interactiva donde practicar el concepto en el momento:
+1. **Arquitectura de la CYD y el SoC ESP32** — buses HSPI/VSPI, lógica invertida del LED RGB.
+2. **Fundamentos de las Tramas IEEE 802.11** — Frame Control, tipos de trama, por qué un deauth no necesita contraseña.
+3. **El 4-Way Handshake, PMKID y la Debilidad de WPA2** — EAPOL, PMK/PTK, por qué WPA3-SAE resiste el ataque de diccionario offline.
+4. **Protected Management Frames (802.11w)** — la mitigación real contra el ataque de desautenticación.
+5. **Bluetooth Low Energy: Advertising y Balizas de Rastreo** — Company ID de Apple, MAC aleatoria resoluble.
+6. **Radiofrecuencia Sub-GHz: del CC1101 a los Rolling Codes** — OOK/ASK, ataque de repetición, por qué KeeLoq lo neutraliza.
+7. **Metodología Red/Blue Team y Marco Legal** — Rules of Engagement, Art. 197 bis/264 CP, Directiva 2013/40/UE.
+
+*El progreso y las respuestas correctas se guardan en `localStorage` del navegador; al completar los 7 módulos se desbloquea la descarga de un certificado de finalización en texto plano.*
+
+### 3. Diseñador de Proyectos Personalizados (Builder)
 Permite generar firmware a medida seleccionando entre **7 arquetipos de ciberseguridad**:
 1. **CYD Marauder Suite** (Red Team Wi-Fi: PMKID, Probe sniffer, Beacon spam).
 2. **CYD Sentinel IDS 24/7** (Blue Team: detección acústica y visual de ráfagas Deauth).
@@ -202,7 +225,7 @@ Permite generar firmware a medida seleccionando entre **7 arquetipos de ciberseg
 
 *Permite activar/desactivar módulos individuales y descargar directamente el sketch `.ino` para Arduino IDE o el proyecto completo con `platformio.ini`.*
 
-### 3. Web Serial Flasher & Monitor Serie AT
+### 4. Web Serial Flasher & Monitor Serie AT
 * **Conexión real por Web Serial API**: el botón *Conectar CYD USB* invoca `navigator.serial.requestPort()`, por lo que Chrome/Edge/Opera muestran el selector real de puerto COM/USB del sistema operativo.
 * **Flasheo simulado**: una vez conectado, la barra de progreso y el log de flasheo son una **simulación educativa** del proceso (no implementan el protocolo real del bootloader `esptool`/`stub` de Espressif, por lo que no escriben bytes en la flash del ESP32). Pensado para enseñar el flujo de trabajo sin necesitar hardware a mano; para grabar firmware real en una CYD física sigue usando `esptool.py`, Arduino IDE o PlatformIO con los `.bin`/`.ino` descargados desde la pestaña Builder.
 * **Catálogo de 6 Firmwares de Referencia**:
@@ -220,14 +243,14 @@ Permite generar firmware a medida seleccionando entre **7 arquetipos de ciberseg
   - Envío de comandos AT (`scanap`, `sniffpmkid`, `status`, `reboot`).
   - Botones de control (Limpiar consola, Autoscroll, Copiar logs, Toggle de modo Claro/Oscuro).
 
-### 4. Simulador Virtual CYD en Tiempo Real
+### 5. Simulador Virtual CYD en Tiempo Real
 * **Gemelo Digital del Hardware**: Pantalla táctil interactiva que reproduce la interfaz visual que verías en la placa real.
 * **Respuesta de Periféricos**:
   - Zumbador acústico con audio sintetizado mediante Web Audio API.
   - LED RGB con lógica invertida Active LOW (estados visuales rojo, verde y azul).
   - Telemetría espectral con gráficos en vivo de RSSI, canales Wi-Fi y dispositivos BLE.
 
-### 5. Generador Paramétrico de Carcasas 3D (Three.js)
+### 6. Generador Paramétrico de Carcasas 3D (Three.js)
 Diseño a medida con **4 geometrías físicas totalmente diferenciadas**:
 1. **Slim Desk (Centinela IDS)**: Perfil fino (14 mm) con pata abatible trasera a 60° y micro-rejilla de altavoz.
 2. **Táctica Cyber Ops**: Rugerizada (22 mm) con 4 bumpers esquineros de goma, tornillos Allen, estrías de agarre lateral, antena de goma negra táctica con conector SMA dorado y hueco para batería LiPo.
@@ -236,7 +259,7 @@ Diseño a medida con **4 geometrías físicas totalmente diferenciadas**:
 
 *Controles incluidos: Rotación orbital 360°, vista explotada para inspeccionar encastre interno, selector de color de filamento (PLA+, PETG, TPU), ajuste de tolerancias de PCB (0.15 a 0.45 mm) y descarga de archivos `.stl` y scripts `.scad`.*
 
-### 6. Academia CTF & Pro Hub Educativo
+### 7. Academia CTF & Pro Hub Educativo
 * **Inspector Visual Bit a Bit**: Desglosa tramas 802.11 Deauth (`0x00c0`), capturas PMKID y balizas BLE byte por byte.
 * **Retos CTF Gamificados**: Preguntas y escenarios reales para afianzar conocimientos técnicos.
 * **Conversor Hashcat 22000**: Convierte datos capturados en formato estándar para auditorías de contraseñas WPA2/WPA3.
