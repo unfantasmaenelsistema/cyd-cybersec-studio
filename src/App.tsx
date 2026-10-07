@@ -33,8 +33,30 @@ import { ProfessionalEducationalHub } from './components/ProfessionalEducational
 import { Enclosure3DGenerator } from './components/Enclosure3DGenerator';
 import { cydAudio } from './utils/audio';
 
+const VALID_TABS: TabType[] = [
+  'overview',
+  'theory',
+  'simulator',
+  'use-cases',
+  'hardware-pinout',
+  'firmware-generator',
+  'builder-flasher',
+  'community-firmware',
+  '3d-enclosure',
+  'pro-academy',
+  'ethics-methodology'
+];
+
+const getTabFromHash = (): TabType | null => {
+  if (typeof window === 'undefined') return null;
+  const hash = window.location.hash.replace('#', '') as TabType;
+  return VALID_TABS.includes(hash) ? hash : null;
+};
+
 export default function App() {
-  const [activeTab, setActiveTab] = useState<TabType>('overview');
+  // Supports deep-linking straight into a tab (e.g. ...#theory) so external
+  // landing pages can send visitors to a specific section of the suite.
+  const [activeTab, setActiveTab] = useState<TabType>(() => getTabFromHash() || 'overview');
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     if (typeof window !== 'undefined') {
@@ -73,6 +95,24 @@ export default function App() {
       cydAudio.playClick();
     }
   };
+
+  // Keep the URL hash in sync so the active tab stays bookmarkable/shareable,
+  // using replaceState (not location.hash =) to avoid spamming browser history.
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.history.replaceState(null, '', `#${activeTab}`);
+    }
+  }, [activeTab]);
+
+  // React to back/forward navigation or an external link changing the hash.
+  useEffect(() => {
+    const onHashChange = () => {
+      const tab = getTabFromHash();
+      if (tab) setActiveTab(tab);
+    };
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
 
   const handleTabChange = (tab: TabType) => {
     setActiveTab(tab);
