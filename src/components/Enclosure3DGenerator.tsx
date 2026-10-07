@@ -175,8 +175,21 @@ export const Enclosure3DGenerator: React.FC = () => {
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const rootGroupRef = useRef<THREE.Group | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
+  // Mutable refs read by the render loop / scene (re)build so that toggling
+  // auto-rotate or picking a camera angle never has to tear down and rebuild
+  // the whole Three.js scene (which used to silently reset the view to the
+  // default isometric angle on every click — see viewRotationRef below).
+  const autoRotateRef = useRef<boolean>(autoRotate);
+  const viewRotationRef = useRef<{ x: number; y: number; z: number }>({ x: -0.25, y: 0.65, z: 0 });
 
-  const currentModel = ENCLOSURE_MODELS.find(m => m.id === selectedModelId) || ENCLOSURE_MODELS[0];
+  useEffect(() => {
+    autoRotateRef.current = autoRotate;
+  }, [autoRotate]);
+
+  const currentModel = React.useMemo(
+    () => ENCLOSURE_MODELS.find(m => m.id === selectedModelId) || ENCLOSURE_MODELS[0],
+    [selectedModelId]
+  );
 
   // Set default features when changing model preset
   const handleSelectModel = (model: EnclosureModel) => {
@@ -192,20 +205,26 @@ export const Enclosure3DGenerator: React.FC = () => {
     setActiveViewMode(view);
     setAutoRotate(false);
     cydAudio.playClick();
-    if (!rootGroupRef.current) return;
 
-    const group = rootGroupRef.current;
-    if (view === 'iso') {
-      group.rotation.set(-0.25, 0.65, 0);
-    } else if (view === 'back') {
+    let rotation: { x: number; y: number; z: number };
+    if (view === 'back') {
       // 180 flip to inspect kickstand, backpack, car mount, or battery
-      group.rotation.set(-0.15, Math.PI, 0);
+      rotation = { x: -0.15, y: Math.PI, z: 0 };
     } else if (view === 'front') {
-      group.rotation.set(0, 0, 0);
+      rotation = { x: 0, y: 0, z: 0 };
     } else if (view === 'top') {
-      group.rotation.set(-1.3, 0, 0);
+      rotation = { x: -1.3, y: 0, z: 0 };
     } else if (view === 'side') {
-      group.rotation.set(0, Math.PI / 2, 0);
+      rotation = { x: 0, y: Math.PI / 2, z: 0 };
+    } else {
+      rotation = { x: -0.25, y: 0.65, z: 0 };
+    }
+
+    // Persist so a later scene rebuild (model/color/wireframe change) keeps
+    // showing the angle the user picked instead of snapping back to isometric.
+    viewRotationRef.current = rotation;
+    if (rootGroupRef.current) {
+      rootGroupRef.current.rotation.set(rotation.x, rotation.y, rotation.z);
     }
   };
 
@@ -365,8 +384,9 @@ translate([0, cyd_height + 25, 0]) cyd_back_shell();
 
     // Root Group
     const rootGroup = new THREE.Group();
-    // Default initial rotation: isometric view showing front, right side, and top antenna
-    rootGroup.rotation.set(-0.25, 0.65, 0);
+    // Restore whichever camera angle was last selected (defaults to isometric)
+    // instead of always snapping back to the hardcoded default on rebuild.
+    rootGroup.rotation.set(viewRotationRef.current.x, viewRotationRef.current.y, viewRotationRef.current.z);
     rootGroupRef.current = rootGroup;
     scene.add(rootGroup);
 
@@ -792,7 +812,7 @@ translate([0, cyd_height + 25, 0]) cyd_back_shell();
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
 
-      if (autoRotate && rootGroup && !isDragging) {
+      if (autoRotateRef.current && rootGroup && !isDragging) {
         rootGroup.rotation.y += 0.008; // Smooth 3D turntable
       }
 
@@ -828,7 +848,7 @@ translate([0, cyd_height + 25, 0]) cyd_back_shell();
       }
       renderer.dispose();
     };
-  }, [selectedModelId, selectedColor, explodedView, autoRotate, wireframeMode, currentModel]);
+  }, [selectedModelId, selectedColor, explodedView, wireframeMode, currentModel]);
 
   // Real STL File Generator (generates a valid, printable ASCII STL box enclosure)
   const handleDownloadStl = (part: 'all' | 'front' | 'back') => {

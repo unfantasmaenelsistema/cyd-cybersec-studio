@@ -53,7 +53,7 @@ Sin embargo, los usuarios noveles y profesionales a menudo se enfrentan a dificu
 
 **CYD CyberSec Studio** nace para resolver estas barreras en una solución única basada en web:
 * **Entorno Educativo & Profesional**: Combina explicaciones pedagógicas de bajo nivel con herramientas de análisis avanzadas (conversor Hashcat 22000, calculadoras de autonomía, generador de informes de auditoría).
-* **Zero-Install Web Flasher**: Graba firmwares directamente a la placa conectada por USB mediante la **Web Serial API** sin instalar Python, `esptool` ni cadenas de compilación.
+* **Zero-Install Web Flasher (demo educativa)**: Conecta por USB mediante la **Web Serial API** real del navegador y simula visualmente el flujo completo de flasheo sin instalar Python ni `esptool`; para grabar firmware en hardware real, exporta el `.ino`/`.bin` y usa Arduino IDE, PlatformIO o `esptool.py`.
 * **Simulación Visual Bidireccional**: Prueba ataques y defensas (Deauth, PMKID, balizas AirTag, Wardriving) en un gemelo digital interactivo antes de salir al campo.
 * **Fabricación Aditiva 3D**: Diseña e imprime carcasas a medida para 4 escenarios tácticos diferentes con previsualización 3D interactiva en Three.js y descarga directa de archivos `.stl` y scripts `.scad`.
 
@@ -81,57 +81,50 @@ Sin embargo, los usuarios noveles y profesionales a menudo se enfrentan a dificu
 
 ---
 
-## 📸 Galería de Interfaz y Marcadores de Capturas
-
-> **Nota para el repositorio**: Puedes colocar tus capturas de pantalla de la interfaz dentro de la carpeta `docs/screenshots/` con los nombres indicados a continuación para que se muestren automáticamente en este archivo README.
+## 📸 Galería de Interfaz
 
 ### 1. Panel Principal & Guía de Inicio Rápido
 *Vista del dashboard general con accesos rápidos, estado de periféricos e instrucciones paso a paso de conexión física.*
 
-```markdown
-![Dashboard y Guía de Inicio Rápido](docs/screenshots/overview.png)
-```
-> *[Marcador de captura: Guarda tu captura del panel Overview como `docs/screenshots/overview.png`]*
+<p align="center">
+  <img src="docs/screenshots/overview.png" alt="Dashboard y Guía de Inicio Rápido" width="90%" />
+</p>
 
 ---
 
 ### 2. Constructor de Proyectos (Builder) y Web Serial Flasher
-*Selector visual de los 7 arquetipos de ciberseguridad, generador de código C++ y consola de flasheo directo por Web Serial.*
+*Selector visual de los 7 arquetipos de ciberseguridad, generador de código C++ y consola de flasheo por Web Serial.*
 
-```markdown
-![Constructor de Proyectos y Web Flasher](docs/screenshots/builder-flasher.png)
-```
-> *[Marcador de captura: Guarda tu captura de Builder & Flasher como `docs/screenshots/builder-flasher.png`]*
+<p align="center">
+  <img src="docs/screenshots/builder-flasher.png" alt="Constructor de Proyectos y Web Flasher" width="90%" />
+</p>
 
 ---
 
 ### 3. Simulador Virtual CYD & Monitor Serie AT
 *Gemelo digital interactivo con respuesta táctil, telemetría Wi-Fi/BLE, visualizador de LEDs RGB y terminal serie de comandos AT con toggle de tema claro/oscuro.*
 
-```markdown
-![Simulador CYD y Monitor Serie AT](docs/screenshots/simulator-serial.png)
-```
-> *[Marcador de captura: Guarda tu captura del Simulador como `docs/screenshots/simulator-serial.png`]*
+<p align="center">
+  <img src="docs/screenshots/simulator-serial.png" alt="Simulador CYD y Monitor Serie AT" width="90%" />
+</p>
 
 ---
 
 ### 4. Generador Paramétrico de Carcasas 3D (Three.js)
 *Visor orbital 360° con vista explotada de las piezas (bisel frontal, placa CYD y caja trasera), selector de color de filamento y parámetros de tolerancia.*
 
-```markdown
-![Visor y Generador de Carcasas 3D](docs/screenshots/enclosure-3d.png)
-```
-> *[Marcador de captura: Guarda tu captura del generador 3D como `docs/screenshots/enclosure-3d.png`]*
+<p align="center">
+  <img src="docs/screenshots/enclosure-3d.png" alt="Visor y Generador de Carcasas 3D" width="90%" />
+</p>
 
 ---
 
 ### 5. Academia CTF & Hub Profesional
 *Desensamblador visual de tramas 802.11/BLE, retos forenses interactivos, conversor Hashcat 22000 y calculadora de baterías de campo.*
 
-```markdown
-![Academia CTF y Herramientas Pro](docs/screenshots/ctf-academy.png)
-```
-> *[Marcador de captura: Guarda tu captura de la Academia como `docs/screenshots/ctf-academy.png`]*
+<p align="center">
+  <img src="docs/screenshots/ctf-academy.png" alt="Academia CTF y Herramientas Pro" width="90%" />
+</p>
 
 ---
 
@@ -210,16 +203,19 @@ Permite generar firmware a medida seleccionando entre **7 arquetipos de ciberseg
 *Permite activar/desactivar módulos individuales y descargar directamente el sketch `.ino` para Arduino IDE o el proyecto completo con `platformio.ini`.*
 
 ### 3. Web Serial Flasher & Monitor Serie AT
-* **Flasheo Directo sin Software Externo**: Conecta la placa por USB y pulsa *Conectar y Flashear*.
-* **Catálogo de 6 Firmwares Precompilados**:
+* **Conexión real por Web Serial API**: el botón *Conectar CYD USB* invoca `navigator.serial.requestPort()`, por lo que Chrome/Edge/Opera muestran el selector real de puerto COM/USB del sistema operativo.
+* **Flasheo simulado**: una vez conectado, la barra de progreso y el log de flasheo son una **simulación educativa** del proceso (no implementan el protocolo real del bootloader `esptool`/`stub` de Espressif, por lo que no escriben bytes en la flash del ESP32). Pensado para enseñar el flujo de trabajo sin necesitar hardware a mano; para grabar firmware real en una CYD física sigue usando `esptool.py`, Arduino IDE o PlatformIO con los `.bin`/`.ino` descargados desde la pestaña Builder.
+* **Catálogo de 6 Firmwares de Referencia**:
   - `ESP32_Marauder_v1.2.0_Port.bin`
   - `CYD_Sentinel_IDS_Guardian_v2.0.bin`
   - `Bruce_MultiTool_ESP32_CYD_v1.7.bin`
   - `CYD_AirTag_Hunter_Radar_v1.1.bin`
   - `Nemo_CYD_Toolkit_v2.4.bin`
   - `CYD_Wardriving_Wigle_NEO6M_v1.0.bin`
+  
+  *(Los `.bin` descargables desde esta demo contienen un marcador de texto de ejemplo, no un binario ESP32 real; para una grabación real compila el `.ino` generado en el Builder o descarga el firmware original desde el repositorio de cada autor.)*
 * **Subida de Archivos Propios**: Arrastra cualquier archivo `.bin` compilado localmente.
-* **Monitor Serie Integrado**:
+* **Monitor Serie Integrado** (consola simulada, no lee el UART real todavía):
   - Velocidad a 115200 baudios.
   - Envío de comandos AT (`scanap`, `sniffpmkid`, `status`, `reboot`).
   - Botones de control (Limpiar consola, Autoscroll, Copiar logs, Toggle de modo Claro/Oscuro).
