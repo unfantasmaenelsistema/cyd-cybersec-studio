@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c14" />
+      <stop offset="50%" stop-color="#0e1626" />
+      <stop offset="100%" stop-color="#05080f" />
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#1e293b" stroke-width="0.7" stroke-opacity="0.5" />
+    </pattern>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="420" fill="url(#bg)" />
+  <rect width="1200" height="420" fill="url(#grid)" />
+
+  <!-- Accent glow circles -->
+  <circle cx="1000" cy="100" r="180" fill="#f59e0b" fill-opacity="0.08" filter="blur(40px)" />
+  <circle cx="200" cy="350" r="160" fill="#10b981" fill-opacity="0.06" filter="blur(40px)" />
+
+  <!-- Border -->
+  <rect x="15" y="15" width="1170" height="390" rx="16" fill="none" stroke="#334155" stroke-width="1.5" stroke-opacity="0.6" />
+
+  <!-- Top badge -->
+  <g transform="translate(60, 45)">
+    <rect x="0" y="0" width="320" height="28" rx="14" fill="#1e293b" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.5" />
+    <circle cx="14" cy="14" r="5" fill="#f59e0b" filter="url(#glow)" />
+    <text x="28" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#fbbf24" letter-spacing="1">
+      ESP32-2432S028R · HARDWARE HACKING LAB
+    </text>
+  </g>
+
+  <!-- Title & Subtitle -->
+  <text x="60" y="125" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="38" font-weight="800" fill="#ffffff" letter-spacing="-0.5">
+    CYD CyberSec Studio
+  </text>
+  <text x="60" y="165" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="17" font-weight="500" fill="#94a3b8">
+    Suite de Auditoría Wi-Fi/BLE, Blue Team IDS, Formación CTF y Web Flasher
+  </text>
+
+  <!-- Creator attribution banner -->
+  <g transform="translate(60, 195)">
+    <rect x="0" y="0" width="380" height="38" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1" />
+    <text x="16" y="24" font-family="monospace" font-size="12" fill="#cbd5e1">
+      Desarrollado por: <tspan fill="#f59e0b" font-weight="bold">Un Fantasma en el Sistema</tspan>
+    </text>
+  </g>
+
+  <!-- Features Tag Pill Grid -->
+  <g transform="translate(60, 260)">
+    <!-- Pill 1 -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="130" height="32" rx="8" fill="#1e293b" stroke="#e11d48" stroke-width="1" stroke-opacity="0.6" />
+      <text x="12" y="20" font-family="monospace" font-size="11" font-weight="700" fill="#fda4af">⚔️ Marauder Suite</text>
+    </g>
+    <!-- Pill 2 -->
+    <g transform="translate(142, 0)">
+      <rect x="0" y="0" width="130" height="32" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1" stroke-opacity="0.6" />
+      <text x="12" y="20" font-family="monospace" font-size="11" font-weight="700" fill="#6ee7b7">🛡️ Sentinel IDS</text>
+    </g>
+    <!-- Pill 3 -->
+    <g transform="translate(284, 0)">
+      <rect x="0" y="0" width="130" height="32" rx="8" fill="#1e293b" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.6" />
+      <text x="12" y="20" font-family="monospace" font-size="11" font-weight="700" fill="#67e8f9">📡 BLE AirTag</text>
+    </g>
+    <!-- Pill 4 -->
+    <g transform="translate(426, 0)">
+      <rect x="0" y="0" width="145" height="32" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.6" />
+      <text x="12" y="20" font-family="monospace" font-size="11" font-weight="700" fill="#c4b5fd">⌨️ BadUSB BLE</text>
+    </g>
+    <!-- Pill 5 -->
+    <g transform="translate(0, 42)">
+      <rect x="0" y="0" width="150" height="32" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.6" />
+      <text x="12" y="20" font-family="monospace" font-size="11" font-weight="700" fill="#fde68a">🗺️ Wardriving GPS</text>
+    </g>
+    <!-- Pill 6 -->
+    <g transform="translate(162, 42)">
+      <rect x="0" y="0" width="140" height="32" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.6" />
+      <text x="12" y="20" font-family="monospace" font-size="11" font-weight="700" fill="#93c5fd">📻 CC1101 Sub-GHz</text>
+    </g>
+    <!-- Pill 7 -->
+    <g transform="translate(314, 42)">
+      <rect x="0" y="0" width="130" height="32" rx="8" fill="#1e293b" stroke="#ec4899" stroke-width="1" stroke-opacity="0.6" />
+      <text x="12" y="20" font-family="monospace" font-size="11" font-weight="700" fill="#fbcfe8">⚡ Web Serial</text>
+    </g>
+    <!-- Pill 8 -->
+    <g transform="translate(456, 42)">
+      <rect x="0" y="0" width="125" height="32" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1" stroke-opacity="0.6" />
+      <text x="12" y="20" font-family="monospace" font-size="11" font-weight="700" fill="#a7f3d0">🎓 CTF Academy</text>
+    </g>
+  </g>
+
+  <!-- Right side: Realistic CYD Board Silhouette Graphic -->
+  <g transform="translate(740, 45)">
+    <!-- Yellow PCB Outline -->
+    <rect x="0" y="0" width="400" height="320" rx="14" fill="#d97706" stroke="#b45309" stroke-width="3" />
+    
+    <!-- Screen Bezel & Display -->
+    <rect x="25" y="25" width="310" height="230" rx="8" fill="#050811" stroke="#475569" stroke-width="2" />
+    
+    <!-- Inner Screen UI Simulation -->
+    <g transform="translate(35, 35)">
+      <!-- Top status bar -->
+      <rect x="0" y="0" width="290" height="22" fill="#0f172a" />
+      <circle cx="10" cy="11" r="4" fill="#10b981" />
+      <text x="22" y="15" font-family="monospace" font-size="10" fill="#38bdf8" font-weight="bold">CYD SENTINEL · CH: 06</text>
+      <text x="235" y="15" font-family="monospace" font-size="10" fill="#94a3b8">921k</text>
+
+      <!-- Terminal logs in display -->
+      <text x="8" y="42" font-family="monospace" font-size="9" fill="#10b981">[OK] ILI9341 320x240 HSPI Init</text>
+      <text x="8" y="58" font-family="monospace" font-size="9" fill="#38bdf8">[SD] MicroSD Montada FAT32 (VSPI)</text>
+      <text x="8" y="74" font-family="monospace" font-size="9" fill="#e2e8f0">[MON] Modo promiscuo activo</text>
+      <text x="8" y="90" font-family="monospace" font-size="9" fill="#f59e0b">[SCAN] 14 SSIDs en el espectro</text>
+
+      <!-- Simulated waveform / spectrum bar -->
+      <rect x="8" y="105" width="274" height="40" rx="4" fill="#090d16" stroke="#1e293b" />
+      <path d="M 12 135 Q 40 115 80 130 T 150 115 T 220 138 T 278 125" fill="none" stroke="#f59e0b" stroke-width="1.8" />
+      
+      <!-- Alert Box -->
+      <rect x="8" y="155" width="274" height="45" rx="4" fill="#881337" fill-opacity="0.4" stroke="#f43f5e" stroke-width="1" />
+      <text x="18" y="172" font-family="monospace" font-size="10" font-weight="bold" fill="#fda4af">ALERTA IDS: Trama Deauth Detectada</text>
+      <text x="18" y="188" font-family="monospace" font-size="9" fill="#cbd5e1">BSSID: B4:82:C5:11:9E:04 · Subtipo: 0x00c0</text>
+    </g>
+
+    <!-- Board Details: Speaker, RGB, SD Slot, Expansion Pinouts -->
+    <!-- RGB LED -->
+    <rect x="348" y="30" width="14" height="14" rx="2" fill="#ef4444" filter="url(#glow)" />
+    <text x="368" y="41" font-family="monospace" font-size="8" fill="#cbd5e1">RGB</text>
+
+    <!-- Speaker Hole -->
+    <circle cx="355" cy="80" r="12" fill="#1e293b" stroke="#64748b" stroke-width="1.5" />
+    <circle cx="355" cy="80" r="4" fill="#0f172a" />
+    <text x="345" y="105" font-family="monospace" font-size="7" fill="#cbd5e1">DAC SPK</text>
+
+    <!-- MicroSD Slot -->
+    <rect x="348" y="125" width="16" height="50" rx="2" fill="#1e293b" stroke="#cbd5e1" stroke-width="1" />
+    <text x="338" y="188" font-family="monospace" font-size="7" fill="#cbd5e1">MicroSD</text>
+
+    <!-- CN1 / P3 Ports -->
+    <rect x="25" y="270" width="70" height="25" rx="3" fill="#1e293b" stroke="#f59e0b" stroke-width="1" />
+    <text x="42" y="286" font-family="monospace" font-size="8" fill="#fde68a">CN1 (UART)</text>
+
+    <rect x="110" y="270" width="80" height="25" rx="3" fill="#1e293b" stroke="#38bdf8" stroke-width="1" />
+    <text x="122" y="286" font-family="monospace" font-size="8" fill="#bae6fd">P3 (CC1101)</text>
+
+    <!-- Cost tag -->
+    <g transform="translate(260, 270)">
+      <rect x="0" y="0" width="115" height="26" rx="6" fill="#047857" />
+      <text x="12" y="17" font-family="monospace" font-size="11" font-weight="bold" fill="#ecfdf5">&lt; 12€ Hardware</text>
+    </g>
+  </g>
+</svg>

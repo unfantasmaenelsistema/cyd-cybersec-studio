@@ -1,0 +1,7 @@
+{
+  "name": "CYD CyberSec Studio - ESP32 Cheap Yellow Display Hacking & Defense",
+  "description": "Suite integral y laboratorio interactivo para auditorías de ciberseguridad, pentesting Wi-Fi/BLE, Blue Team IDS y firmware para placas CYD ESP32-2432S028R.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

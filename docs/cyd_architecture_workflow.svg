@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c14" />
+      <stop offset="100%" stop-color="#040810" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b" />
+    </marker>
+  </defs>
+
+  <rect width="1100" height="480" fill="url(#bg3)" rx="12" stroke="#334155" stroke-width="1.5" />
+
+  <!-- Header -->
+  <g transform="translate(40, 25)">
+    <text x="0" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#ffffff">
+      Flujo de Trabajo Integral · De la Captura al Análisis Forense
+    </text>
+    <text x="0" y="44" font-family="monospace" font-size="12" fill="#94a3b8">
+      Pipeline completo de ciberseguridad soportado por CYD CyberSec Studio
+    </text>
+  </g>
+
+  <!-- 4 Step Flow Cards -->
+  <!-- Step 1: Captura Hardware -->
+  <g transform="translate(40, 90)">
+    <rect x="0" y="0" width="225" height="340" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="1.2" />
+    <rect x="0" y="0" width="225" height="36" rx="10" fill="#b45309" fill-opacity="0.3" />
+    <text x="12" y="23" font-family="monospace" font-size="12" font-weight="bold" fill="#fbbf24">1. HARDWARE & CAPTURA</text>
+    
+    <g transform="translate(14, 52)" font-family="monospace" font-size="10" fill="#cbd5e1">
+      <text y="14" fill="#f59e0b" font-weight="bold">ESP32 CYD en Campo:</text>
+      <text y="34">• Modo Promiscuo 802.11</text>
+      <text y="52">• Salto Canales (1 - 13)</text>
+      <text y="70">• Captura Hashes PMKID</text>
+      <text y="88">• Detección Deauth 0x00c0</text>
+      <text y="106">• Balizas BLE Apple 0x004C</text>
+      <text y="124">• Coordenadas GPS (CN1)</text>
+
+      <rect x="-4" y="140" width="205" height="120" rx="6" fill="#020617" stroke="#1e293b" />
+      <text y="160" fill="#38bdf8" font-size="10">Almacenamiento Local:</text>
+      <text y="180" fill="#94a3b8">→ MicroSD en Bus VSPI</text>
+      <text y="198" fill="#94a3b8">→ Archivos .PCAP crudos</text>
+      <text y="216" fill="#94a3b8">→ Formato Wigle CSV</text>
+      <text y="234" fill="#94a3b8">→ Logs con Timestamp</text>
+    </g>
+  </g>
+
+  <!-- Arrow 1 -> 2 -->
+  <path d="M 270 260 L 305 260" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow)" />
+
+  <!-- Step 2: Suite Web & Simulador -->
+  <g transform="translate(315, 90)">
+    <rect x="0" y="0" width="225" height="340" rx="10" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2" />
+    <rect x="0" y="0" width="225" height="36" rx="10" fill="#0284c7" fill-opacity="0.3" />
+    <text x="12" y="23" font-family="monospace" font-size="12" font-weight="bold" fill="#38bdf8">2. ANÁLISIS EN VIVO</text>
+
+    <g transform="translate(14, 52)" font-family="monospace" font-size="10" fill="#cbd5e1">
+      <text y="14" fill="#38bdf8" font-weight="bold">CYD CyberSec Studio:</text>
+      <text y="34">• Gráficos Recharts en Vivo</text>
+      <text y="52">• Densidad Espectral 2.4GHz</text>
+      <text y="70">• Desglose Mgmt/Data/Deauth</text>
+      <text y="88">• Simulador Táctil CYD</text>
+      <text y="106">• Sonido Sintetizado DAC</text>
+
+      <rect x="-4" y="140" width="205" height="120" rx="6" fill="#020617" stroke="#1e293b" />
+      <text y="160" fill="#34d399" font-size="10">Registro Forense (Logger):</text>
+      <text y="180" fill="#94a3b8">• Alertas con Severidad</text>
+      <text y="198" fill="#94a3b8">• Filtro MAC / BSSID / RSSI</text>
+      <text y="216" fill="#94a3b8">• Escaneo Wi-Fi Interactivo</text>
+      <text y="234" fill="#34d399">• Exportar a CSV Forense</text>
+    </g>
+  </g>
+
+  <!-- Arrow 2 -> 3 -->
+  <path d="M 545 260 L 580 260" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow)" />
+
+  <!-- Step 3: Builder & Web Flasher -->
+  <g transform="translate(590, 90)">
+    <rect x="0" y="0" width="225" height="340" rx="10" fill="#0f172a" stroke="#a855f7" stroke-width="1.2" />
+    <rect x="0" y="0" width="225" height="36" rx="10" fill="#7e22ce" fill-opacity="0.3" />
+    <text x="12" y="23" font-family="monospace" font-size="12" font-weight="bold" fill="#c084fc">3. BUILD & FLASH</text>
+
+    <g transform="translate(14, 52)" font-family="monospace" font-size="10" fill="#cbd5e1">
+      <text y="14" fill="#c084fc" font-weight="bold">Constructor Personalizado:</text>
+      <text y="34">• 7 Arquetipos Integrados</text>
+      <text y="52">• Código .ino C++ Dinámico</text>
+      <text y="70">• platformio.ini optimizado</text>
+      <text y="88">• Exportar/Importar .json</text>
+
+      <rect x="-4" y="140" width="205" height="120" rx="6" fill="#020617" stroke="#1e293b" />
+      <text y="160" fill="#fbbf24" font-size="10">Web Serial USB Flasher:</text>
+      <text y="180" fill="#94a3b8">• Sin instalar Python ni IDE</text>
+      <text y="198" fill="#94a3b8">• 6 Binarios .bin Listos</text>
+      <text y="216" fill="#94a3b8">• Bruce / Marauder / Sentinel</text>
+      <text y="234" fill="#fbbf24">• Monitor Serial UART en Vivo</text>
+    </g>
+  </g>
+
+  <!-- Arrow 3 -> 4 -->
+  <path d="M 820 260 L 855 260" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow)" />
+
+  <!-- Step 4: Pro Hub, CTF & Informes -->
+  <g transform="translate(865, 90)">
+    <rect x="0" y="0" width="195" height="340" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="1.2" />
+    <rect x="0" y="0" width="195" height="36" rx="10" fill="#047857" fill-opacity="0.3" />
+    <text x="12" y="23" font-family="monospace" font-size="12" font-weight="bold" fill="#34d399">4. AUDITORÍA & CTF</text>
+
+    <g transform="translate(14, 52)" font-family="monospace" font-size="10" fill="#cbd5e1">
+      <text y="14" fill="#34d399" font-weight="bold">Academia & Forense:</text>
+      <text y="34">• Desensamblador 802.11</text>
+      <text y="52">• Formación CTF Gamificada</text>
+      <text y="70">• Formato Hashcat 22000</text>
+      <text y="88">• Calculadora Batería LiPo</text>
+
+      <rect x="-4" y="140" width="175" height="120" rx="6" fill="#020617" stroke="#1e293b" />
+      <text y="160" fill="#e2e8f0" font-size="10">Entregable Final:</text>
+      <text y="180" fill="#94a3b8">• Informes Técnicos</text>
+      <text y="198" fill="#94a3b8">• Puntuación CVSS</text>
+      <text y="216" fill="#94a3b8">• Medidas de Mitigación</text>
+      <text y="234" fill="#34d399">• Firma Oficial Un Fantasma</text>
+    </g>
+  </g>
+</svg>

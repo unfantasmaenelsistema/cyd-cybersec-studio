@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 580" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="100%" stop-color="#04070d" />
+    </linearGradient>
+    <filter id="glow2" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="1100" height="580" fill="url(#bg2)" rx="12" stroke="#334155" stroke-width="1.5" />
+
+  <!-- Header -->
+  <g transform="translate(40, 30)">
+    <rect x="0" y="0" width="220" height="24" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="0.8" />
+    <circle cx="12" cy="12" r="4" fill="#f59e0b" filter="url(#glow2)" />
+    <text x="24" y="16" font-family="monospace" font-size="10" font-weight="bold" fill="#fbbf24">PINOUT & ANATOMÍA TÉCNICA</text>
+    
+    <text x="0" y="55" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="800" fill="#ffffff">
+      ESP32 Cheap Yellow Display (CYD · 2432S028R)
+    </text>
+    <text x="0" y="78" font-family="monospace" font-size="12" fill="#94a3b8">
+      Mapeo de buses SPI independientes, periféricos integrados y puertos de expansión
+    </text>
+  </g>
+
+  <!-- Left Column: Display HSPI & Touch -->
+  <g transform="translate(40, 130)">
+    <rect x="0" y="0" width="310" height="205" rx="10" fill="#0f172a" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.4" />
+    <rect x="0" y="0" width="310" height="32" rx="10" fill="#0369a1" fill-opacity="0.3" />
+    <text x="14" y="21" font-family="monospace" font-size="12" font-weight="bold" fill="#38bdf8">
+      📺 PANTALLA ILI9341 (Bus HSPI)
+    </text>
+    <g transform="translate(14, 48)" font-family="monospace" font-size="11" fill="#cbd5e1">
+      <text y="14"><tspan fill="#f59e0b" font-weight="bold">GPIO 14</tspan> : TFT_SCLK (Reloj SPI)</text>
+      <text y="34"><tspan fill="#f59e0b" font-weight="bold">GPIO 13</tspan> : TFT_MOSI (Datos)</text>
+      <text y="54"><tspan fill="#f59e0b" font-weight="bold">GPIO 12</tspan> : TFT_MISO (Retorno)</text>
+      <text y="74"><tspan fill="#f59e0b" font-weight="bold">GPIO 15</tspan> : TFT_CS (Chip Select)</text>
+      <text y="94"><tspan fill="#f59e0b" font-weight="bold">GPIO 02</tspan> : TFT_DC (Comando / Dato)</text>
+      <text y="114"><tspan fill="#f59e0b" font-weight="bold">GPIO 21</tspan> : TFT_BL (Brillo PWM)</text>
+      <text y="134"><tspan fill="#64748b">-1</tspan>      : TFT_RST (Reset conectado a EN)</text>
+    </g>
+  </g>
+
+  <!-- Left Column Bottom: Touch Controller -->
+  <g transform="translate(40, 350)">
+    <rect x="0" y="0" width="310" height="195" rx="10" fill="#0f172a" stroke="#818cf8" stroke-width="1" stroke-opacity="0.4" />
+    <rect x="0" y="0" width="310" height="32" rx="10" fill="#4338ca" fill-opacity="0.3" />
+    <text x="14" y="21" font-family="monospace" font-size="12" font-weight="bold" fill="#a5b4fc">
+      👆 PANEL TÁCTIL XPT2046
+    </text>
+    <g transform="translate(14, 48)" font-family="monospace" font-size="11" fill="#cbd5e1">
+      <text y="14"><tspan fill="#f59e0b" font-weight="bold">GPIO 33</tspan> : TOUCH_CS (Chip Select)</text>
+      <text y="34"><tspan fill="#f59e0b" font-weight="bold">GPIO 36</tspan> : TOUCH_IRQ (Interrupción / VP)</text>
+      <text y="54"><tspan fill="#94a3b8">Comparte</tspan> : SCK, MOSI y MISO con TFT</text>
+      <text y="80" fill="#e0e7ff" font-size="10">Calibración recomendada en código:</text>
+      <text y="98" fill="#a5b4fc" font-size="9">uint16_t cal[5] = {300, 3500, 300, 3500, 7};</text>
+      <text y="118" fill="#a5b4fc" font-size="9">tft.setTouch(cal);</text>
+    </g>
+  </g>
+
+  <!-- Middle Column: MicroSD Dedicated VSPI Bus -->
+  <g transform="translate(390, 130)">
+    <rect x="0" y="0" width="320" height="205" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="1" stroke-opacity="0.4" />
+    <rect x="0" y="0" width="320" height="32" rx="10" fill="#047857" fill-opacity="0.3" />
+    <text x="14" y="21" font-family="monospace" font-size="12" font-weight="bold" fill="#34d399">
+      💾 LECTOR MICROSD (Bus VSPI)
+    </text>
+    <g transform="translate(14, 48)" font-family="monospace" font-size="11" fill="#cbd5e1">
+      <text y="14"><tspan fill="#10b981" font-weight="bold">GPIO 05</tspan> : SD_CS (Chip Select SD)</text>
+      <text y="34"><tspan fill="#10b981" font-weight="bold">GPIO 18</tspan> : SD_SCK (Reloj VSPI)</text>
+      <text y="54"><tspan fill="#10b981" font-weight="bold">GPIO 19</tspan> : SD_MISO (Master In Slave Out)</text>
+      <text y="74"><tspan fill="#10b981" font-weight="bold">GPIO 23</tspan> : SD_MOSI (Master Out Slave In)</text>
+      <text y="105" fill="#fef08a" font-size="10">⚠️ ¡ARQUITECTURA CLAVE CYD!</text>
+      <text y="125" fill="#94a3b8" font-size="10">La SD usa bus VSPI independiente del TFT.</text>
+      <text y="142" fill="#94a3b8" font-size="10">Formatear siempre en FAT32 (32GB máx).</text>
+    </g>
+  </g>
+
+  <!-- Middle Column Bottom: Audio DAC & RGB LED -->
+  <g transform="translate(390, 350)">
+    <rect x="0" y="0" width="320" height="195" rx="10" fill="#0f172a" stroke="#f43f5e" stroke-width="1" stroke-opacity="0.4" />
+    <rect x="0" y="0" width="320" height="32" rx="10" fill="#be123c" fill-opacity="0.3" />
+    <text x="14" y="21" font-family="monospace" font-size="12" font-weight="bold" fill="#fb7185">
+      🔊 AUDIO DAC & LED RGB TRICOLOR
+    </text>
+    <g transform="translate(14, 48)" font-family="monospace" font-size="11" fill="#cbd5e1">
+      <text y="14"><tspan fill="#fb7185" font-weight="bold">GPIO 26</tspan> : Altavoz Zumbador (DAC 2)</text>
+      <text y="34"><tspan fill="#f43f5e" font-weight="bold">GPIO 04</tspan> : LED Rojo (Active LOW - 0V = ON)</text>
+      <text y="54"><tspan fill="#22c55e" font-weight="bold">GPIO 16</tspan> : LED Verde (Active LOW)</text>
+      <text y="74"><tspan fill="#38bdf8" font-weight="bold">GPIO 17</tspan> : LED Azul (Active LOW)</text>
+      <text y="102" fill="#fecdd3" font-size="10">Nota: Al usar Lógica Invertida:</text>
+      <text y="120" fill="#fda4af" font-size="9">digitalWrite(4, LOW);  // Enciende LED rojo</text>
+      <text y="136" fill="#fda4af" font-size="9">digitalWrite(4, HIGH); // Apaga LED rojo</text>
+    </g>
+  </g>
+
+  <!-- Right Column: Expansion Connectors CN1 & P3 -->
+  <g transform="translate(750, 130)">
+    <rect x="0" y="0" width="310" height="415" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.5" />
+    <rect x="0" y="0" width="310" height="32" rx="10" fill="#b45309" fill-opacity="0.3" />
+    <text x="14" y="21" font-family="monospace" font-size="12" font-weight="bold" fill="#fbbf24">
+      🔌 EXPANSIONES CN1 & P3 (RF / GPS)
+    </text>
+    
+    <!-- CN1 Connector Details -->
+    <g transform="translate(14, 48)" font-family="monospace" font-size="11" fill="#cbd5e1">
+      <text y="14" fill="#fbbf24" font-weight="bold">Conector CN1 (JST 1.25mm 4-Pin):</text>
+      <text y="34">• Pin 1: <tspan fill="#ef4444">VCC (3.3V)</tspan></text>
+      <text y="54">• Pin 2: <tspan fill="#94a3b8">GND</tspan></text>
+      <text y="74">• Pin 3: <tspan fill="#f59e0b">GPIO 22</tspan> (UART RX / GPS)</text>
+      <text y="94">• Pin 4: <tspan fill="#f59e0b">GPIO 27</tspan> (UART TX / GPS)</text>
+      <text y="118" fill="#fde68a" font-size="10">→ Ideal para módulo GPS NEO-6M (Wardriving)</text>
+    </g>
+
+    <!-- P3 Connector Details -->
+    <g transform="translate(14, 195)" font-family="monospace" font-size="11" fill="#cbd5e1">
+      <text y="14" fill="#38bdf8" font-weight="bold">Conector P3 (4-Pin Expansión):</text>
+      <text y="34">• Pin 1: <tspan fill="#ef4444">3.3V</tspan></text>
+      <text y="54">• Pin 2: <tspan fill="#94a3b8">GND</tspan></text>
+      <text y="74">• Pin 3: <tspan fill="#38bdf8">GPIO 35</tspan> (ADC Solo Entrada)</text>
+      <text y="94">• Pin 4: <tspan fill="#38bdf8">GPIO 21</tspan> / IO Libre</text>
+      <text y="118" fill="#bae6fd" font-size="10">→ Utilizado junto a CN1 para transceptor CC1101</text>
+      <text y="134" fill="#bae6fd" font-size="10">  (Sub-GHz 433/868 MHz estilo Flipper Zero)</text>
+    </g>
+
+    <!-- USB Drivers note -->
+    <g transform="translate(14, 355)" font-family="monospace" font-size="10" fill="#94a3b8">
+      <rect x="-4" y="-12" width="288" height="52" rx="6" fill="#020617" stroke="#334155" />
+      <text y="4" fill="#38bdf8">Drivers USB: CH340 o CP2102</text>
+      <text y="22" fill="#cbd5e1">Baud Flasheo: 115200 / 921600</text>
+      <text y="36" fill="#e2e8f0">Truco BOOT: Mantener pulsado si falla conexión</text>
+    </g>
+  </g>
+</svg>
