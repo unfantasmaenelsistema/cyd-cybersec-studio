@@ -14,12 +14,16 @@
 </p>
 
 <p align="center">
+  <a href="https://unfantasmaenelsistema.github.io/cyd-cybersec-studio/"><strong>🌐 Abrir la Demo en Vivo (GitHub Pages)</strong></a>
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Placa-ESP32--2432S028R%20(CYD)-f59e0b?style=for-the-badge&logo=espressif&logoColor=white" alt="Hardware CYD" />
   <img src="https://img.shields.io/badge/React-19-61dafb?style=for-the-badge&logo=react&logoColor=black" alt="React 19" />
   <img src="https://img.shields.io/badge/TypeScript-5.x-3178c6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Three.js-3D_Enclosure-black?style=for-the-badge&logo=threedotjs&logoColor=white" alt="Three.js" />
   <img src="https://img.shields.io/badge/Web_Serial_API-USB_Flasher-10b981?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Web Serial API" />
-  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT License" />
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT License" /></a>
 </p>
 
 ---
@@ -41,8 +45,9 @@
 6. [🔌 Pinout y Anatomía Técnica de la Placa CYD](#-pinout-y-anatomía-técnica-de-la-placa-cyd)
 7. [📚 Referencias a los Proyectos Fuente (Reconocimientos)](#-referencias-a-los-proyectos-fuente-reconocimientos)
 8. [🚀 Publicación en tu Repositorio de GitHub](#-publicación-en-tu-repositorio-de-github)
-9. [⚖️ Marco Legal y Responsabilidad Ética](#️-marco-legal-y-responsabilidad-ética)
-10. [🌐 Enlaces y Comunidad](#-enlaces-y-comunidad)
+9. [🌍 Despliegue en Producción (GitHub Pages)](#-despliegue-en-producción-github-pages)
+10. [⚖️ Marco Legal y Responsabilidad Ética](#️-marco-legal-y-responsabilidad-ética)
+11. [🌐 Enlaces y Comunidad](#-enlaces-y-comunidad)
 
 ---
 
@@ -347,6 +352,17 @@ git branch -M main
 # 5. Sube todos los commits y ramas a GitHub
 git push -u origin main
 ```
+
+---
+
+## 🌍 Despliegue en Producción (GitHub Pages)
+
+Este repositorio se despliega automáticamente como **demo pública y estática** en GitHub Pages mediante el workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml): cada `push` a `main` ejecuta `npm ci`, `npm run lint` (type-check) y `npm run build`, y publica el contenido de `dist/` directamente con las acciones oficiales `actions/upload-pages-artifact` + `actions/deploy-pages` (sin rama `gh-pages` intermedia).
+
+* **URL pública**: [unfantasmaenelsistema.github.io/cyd-cybersec-studio](https://unfantasmaenelsistema.github.io/cyd-cybersec-studio/)
+* **¿Por qué GitHub Pages y no un hosting con servidor?** La suite es una SPA 100% estática que no necesita backend, y GitHub Pages sirve siempre sobre HTTPS — un requisito indispensable para que `navigator.serial` (Web Serial API) funcione en el navegador; sobre HTTP la API queda deshabilitada por política de seguridad del propio navegador.
+* **`base` de Vite**: como el sitio vive bajo un subpath (`/cyd-cybersec-studio/`) en lugar de la raíz del dominio, `vite.config.ts` fija ese `base` solo durante `npm run build` (`npm run dev`/`preview` siguen funcionando en la raíz `/` como siempre).
+* **Desplegar tu propio fork**: tras subir tu copia a GitHub, entra en *Settings → Pages → Build and deployment* y selecciona **Source: GitHub Actions**; el workflow ya incluido se encarga del resto en el siguiente `push`.
 
 ---
 

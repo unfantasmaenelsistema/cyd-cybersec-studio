@@ -91,7 +91,7 @@ export default function App() {
           >
             <div className="w-10 h-10 rounded-xl bg-slate-900 border border-amber-500/30 flex items-center justify-center p-1 group-hover:scale-105 group-hover:border-amber-400 transition-all shadow-[0_0_15px_rgba(245,158,11,0.2)] overflow-hidden">
               <img 
-                src="/icono.png" 
+                src={`${import.meta.env.BASE_URL}icono.png`}
                 alt="Un Fantasma en el Sistema" 
                 className="w-full h-full object-contain filter drop-shadow"
               />
@@ -252,7 +252,7 @@ export default function App() {
               title="Visitar la web oficial de Un Fantasma en el Sistema"
             >
               <img 
-                src="/icono.png" 
+                src={`${import.meta.env.BASE_URL}icono.png`}
                 alt="Logo Un Fantasma en el Sistema" 
                 className="w-4 h-4 object-contain group-hover:scale-110 transition-transform" 
               />
@@ -347,7 +347,7 @@ export default function App() {
             >
               <div className="w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center p-1.5 shadow-md group-hover:scale-105 transition-transform">
                 <img 
-                  src="/icono.png" 
+                  src={`${import.meta.env.BASE_URL}icono.png`}
                   alt="Un Fantasma en el Sistema" 
                   className="w-full h-full object-contain filter drop-shadow" 
                 />

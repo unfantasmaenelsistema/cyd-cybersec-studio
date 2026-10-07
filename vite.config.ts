@@ -2,8 +2,11 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import {defineConfig} from 'vite';
 
-export default defineConfig(() => {
+export default defineConfig(({command}) => {
   return {
+    // GitHub Pages serves this project from https://<user>.github.io/cyd-cybersec-studio/,
+    // so production builds need that subpath prefix; local dev/preview stay at the root.
+    base: command === 'build' ? '/cyd-cybersec-studio/' : '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

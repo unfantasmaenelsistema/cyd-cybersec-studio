@@ -58,7 +58,7 @@ export const Overview: React.FC<OverviewProps> = ({ onNavigateTab }) => {
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-950/80 hover:bg-slate-900 border border-amber-500/40 text-xs font-semibold text-slate-200 transition-all group shadow-sm hover:border-amber-400"
             >
               <img 
-                src="/icono.png" 
+                src={`${import.meta.env.BASE_URL}icono.png`}
                 alt="Un Fantasma en el Sistema" 
                 className="w-5 h-5 object-contain group-hover:scale-110 transition-transform" 
               />
