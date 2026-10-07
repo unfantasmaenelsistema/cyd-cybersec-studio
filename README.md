@@ -44,7 +44,7 @@
    - [7. Academia CTF & Pro Hub Educativo](#7-academia-ctf--pro-hub-educativo)
 6. [🔌 Pinout y Anatomía Técnica de la Placa CYD](#-pinout-y-anatomía-técnica-de-la-placa-cyd)
 7. [📚 Referencias a los Proyectos Fuente (Reconocimientos)](#-referencias-a-los-proyectos-fuente-reconocimientos)
-8. [🚀 Publicación en tu Repositorio de GitHub](#-publicación-en-tu-repositorio-de-github)
+8. [🍴 ¿Quieres tu propio Fork?](#-quieres-tu-propio-fork)
 9. [🌍 Despliegue en Producción (GitHub Pages)](#-despliegue-en-producción-github-pages)
 10. [⚖️ Marco Legal y Responsabilidad Ética](#️-marco-legal-y-responsabilidad-ética)
 11. [🌐 Enlaces y Comunidad](#-enlaces-y-comunidad)
@@ -171,7 +171,7 @@ Para clonar y desplegar la suite en tu máquina local:
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/TU_USUARIO/cyd-cybersec-studio.git
+git clone https://github.com/unfantasmaenelsistema/cyd-cybersec-studio.git
 
 # 2. Acceder al directorio del proyecto
 cd cyd-cybersec-studio
@@ -331,27 +331,11 @@ Este proyecto rinde tributo y se apoya en el trabajo de investigación pionero d
 
 ---
 
-## 🚀 Publicación en tu Repositorio de GitHub
+## 🍴 ¿Quieres tu propio Fork?
 
-Para subir este proyecto a tu perfil de GitHub:
+Este repositorio ya está publicado y en producción en [unfantasmaenelsistema/cyd-cybersec-studio](https://github.com/unfantasmaenelsistema/cyd-cybersec-studio), así que no hace falta crear un remoto nuevo para usarlo. Si quieres tu propia copia editable (por ejemplo, para adaptar el contenido del curso o añadir tus propios firmwares), usa el botón **Fork** de GitHub en la esquina superior de la página del repositorio: clona automáticamente el código a tu cuenta con el remoto `origin` ya correctamente configurado, sin pasos manuales de `git remote add`.
 
-```bash
-# 1. Asegúrate de estar en la raíz del proyecto
-git status
-
-# 2. Crea un nuevo repositorio vacío en tu cuenta de GitHub:
-# https://github.com/new (ejemplo: 'cyd-cybersec-studio')
-# NOTA: No marques la casilla "Add a README file" ya que este repositorio ya contiene uno completo.
-
-# 3. Vincula el repositorio remoto (reemplaza TU_USUARIO por tu nombre de usuario en GitHub):
-git remote add origin https://github.com/TU_USUARIO/cyd-cybersec-studio.git
-
-# 4. Asegura que la rama sea main
-git branch -M main
-
-# 5. Sube todos los commits y ramas a GitHub
-git push -u origin main
-```
+Si en cambio quieres desplegar tu fork en tu propio GitHub Pages, recuerda actualizar `base` en `vite.config.ts` y `homepage` en `package.json` con tu nombre de usuario — ver la sección [🌍 Despliegue en Producción](#-despliegue-en-producción-github-pages) más abajo.
 
 ---
 
@@ -380,7 +364,8 @@ Esta suite de software, sus generadores de firmware y la documentación asociada
 
 * **Portal Oficial de Ciberseguridad**: [unfantasmaenelsistema.com](https://www.unfantasmaenelsistema.com/)
 * **Documentación Oficial de Espressif**: [espressif.com](https://www.espressif.com/)
-* **Reporte de Problemas**: Utiliza la pestaña [Issues](https://github.com/TU_USUARIO/cyd-cybersec-studio/issues) de GitHub para sugerencias, nuevas carcasas 3D o mejoras en el código.
+* **Repositorio y Demo en Vivo**: [github.com/unfantasmaenelsistema/cyd-cybersec-studio](https://github.com/unfantasmaenelsistema/cyd-cybersec-studio) · [unfantasmaenelsistema.github.io/cyd-cybersec-studio](https://unfantasmaenelsistema.github.io/cyd-cybersec-studio/)
+* **Reporte de Problemas**: Utiliza la pestaña [Issues](https://github.com/unfantasmaenelsistema/cyd-cybersec-studio/issues) de GitHub para sugerencias, nuevas carcasas 3D o mejoras en el código.
 
 ---
 
